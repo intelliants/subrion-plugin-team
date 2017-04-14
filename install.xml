@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module type="plugin" name="team">
+	<title>Team</title>
+	<summary>Easy way to create and handle a team</summary>
+	<author>Intelliants LLC</author>
+	<contributor>Intelliants LLC</contributor>
+	<version>1.0.0</version>
+	<date>2017-04-14</date>
+	<compatibility>4.1.0</compatibility>
+
+	<screenshots>
+		<screenshot type="preview" name="preview.jpg">View Listing page</screenshot>
+	</screenshots>
+
+	<items>
+		<item>team</item>
+	</items>
+
+	<actions>
+		<action name="team" url="team/team/" icon="list" pages="team:add,team:edit"><![CDATA[]]></action>
+		<action name="add_team_member" url="team/team/add/" icon="plus" pages="team:read,team:edit"><![CDATA[]]></action>
+	</actions>
+
+	<adminpages>
+		<page group="content" name="team" url="team/team/" menus="menu">Team</page>
+	</adminpages>
+
+	<pages>
+		<page url="team/" name="team" menus="main">Team</page>
+	</pages>
+
+	<fields_groups>
+		<group item="team" name="general" title="General"><![CDATA[]]></group>
+	</fields_groups>
+
+	<fields>
+		<field name="title" item="team" type="text" group="general" length="70" required="1" multilingual="1" adminonly="1">Title</field>
+		<field name="position" item="team" type="text" group="general" length="70" required="0" multilingual="1" adminonly="1">Position</field>
+		<field name="description" item="team" type="textarea" group="general" editor="1" required="1" multilingual="1" adminonly="1">Description</field>
+		<field name="pictures" item="team" type="pictures" group="general" length="5" thumb_width="320" thumb_height="320" width="800" height="600" prefix="team_" editable="0">Pictures</field>
+	</fields>
+
+	<phrases>
+		<phrase category="admin" key="add_team_member">Add Team Member</phrase>
+
+		<phrase category="common" key="team">Team</phrase>
+		<phrase category="common" key="no_members">No members.</phrase>
+	</phrases>
+
+	<install>
+		<sql>
+			<![CDATA[
+CREATE TABLE IF NOT EXISTS `{prefix}team`(
+	`id` int(8) unsigned NOT NULL auto_increment,
+	`date_added` date,
+	`date_modified` date,
+	`status` enum('active', 'inactive') NOT NULL default 'inactive',
+	`order` mediumint(8) NOT NULL default 0,
+	`views_num` mediumint(8) unsigned NOT NULL default 0,
+	`featured` tinyint(1) unsigned NOT NULL default 0,
+	`featured_start` datetime NULL,
+	`featured_end` datetime NULL,
+	PRIMARY KEY (`id`),
+	KEY `STATUS` (`status`),
+	KEY `ORDER` (`order`)
+) {mysql_version};
+			]]>
+		</sql>
+	</install>
+
+	<uninstall>
+		<sql>
+			<![CDATA[
+DROP TABLE IF EXISTS `{prefix}team`;
+			]]>
+		</sql>
+	</uninstall>
+</module>
