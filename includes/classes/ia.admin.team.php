@@ -26,12 +26,12 @@
 
 class iaTeam extends abstractModuleAdmin
 {
-	protected static $_table = 'team';
-	protected $_itemName = 'team';
+    protected static $_table = 'team';
+    protected $_itemName = 'team';
 
-	protected $_activityLog = ['item' => 'member'];
+    protected $_activityLog = ['item' => 'member'];
 
-	protected $_statuses = [iaCore::STATUS_ACTIVE, iaCore::STATUS_INACTIVE];
+    protected $_statuses = [iaCore::STATUS_ACTIVE, iaCore::STATUS_INACTIVE];
 
-	public $dashboardStatistics = ['icon' => 'folder', 'url' => 'members/'];
+    public $dashboardStatistics = ['icon' => 'folder', 'url' => 'members/'];
 }

@@ -26,38 +26,38 @@
 
 class iaBackendController extends iaAbstractControllerModuleBackend
 {
-	protected $_name = 'team';
-	protected $_path = 'team';
-	protected $_itemName = 'team';
+    protected $_name = 'team';
+    protected $_path = 'team';
+    protected $_itemName = 'team';
 
-	protected $_helperName = 'team';
+    protected $_helperName = 'team';
 
-	protected $_gridColumns = ['title', 'date_added', 'date_modified', 'status'];
-	protected $_gridFilters = ['title' => self::LIKE, 'status' => self::EQUAL];
+    protected $_gridColumns = ['title', 'date_added', 'date_modified', 'status'];
+    protected $_gridFilters = ['title' => self::LIKE, 'status' => self::EQUAL];
 
-	protected $_activityLog = ['item' => 'team'];
+    protected $_activityLog = ['item' => 'team'];
 
 
-	protected function _setDefaultValues(array &$entry)
-	{
-		$entry = [
-			'featured' => false,
-			'status' => iaCore::STATUS_ACTIVE
-		];
-	}
+    protected function _setDefaultValues(array &$entry)
+    {
+        $entry = [
+            'featured' => false,
+            'status' => iaCore::STATUS_ACTIVE
+        ];
+    }
 
-	protected function _entryUpdate(array $entryData, $entryId)
-	{
-		$entryData['date_modified'] = date(iaDb::DATETIME_FORMAT);
+    protected function _entryUpdate(array $entryData, $entryId)
+    {
+        $entryData['date_modified'] = date(iaDb::DATETIME_FORMAT);
 
-		return parent::_entryUpdate($entryData, $entryId);
-	}
+        return parent::_entryUpdate($entryData, $entryId);
+    }
 
-	protected function _entryAdd(array $entryData)
-	{
-		$entryData['date_added'] = date(iaDb::DATETIME_FORMAT);
-		$entryData['date_modified'] = date(iaDb::DATETIME_FORMAT);
+    protected function _entryAdd(array $entryData)
+    {
+        $entryData['date_added'] = date(iaDb::DATETIME_FORMAT);
+        $entryData['date_modified'] = date(iaDb::DATETIME_FORMAT);
 
-		return parent::_entryAdd($entryData);
-	}
+        return parent::_entryAdd($entryData);
+    }
 }

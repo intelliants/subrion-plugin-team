@@ -24,13 +24,12 @@
  *
  ******************************************************************************/
 
-if (iaView::REQUEST_HTML == $iaView->getRequestType())
-{
-	$iaTeam = $iaCore->factoryModule('team', IA_CURRENT_MODULE);
+if (iaView::REQUEST_HTML == $iaView->getRequestType()) {
+    $iaTeam = $iaCore->factoryModule('team', IA_CURRENT_MODULE);
 
-	$team = $iaTeam->get('');
+    $team = $iaTeam->get('');
 
-	$iaView->assign('team', $team);
+    $iaView->assign('team', $team);
 
-	$iaView->display('index');
+    $iaView->display('index');
 }

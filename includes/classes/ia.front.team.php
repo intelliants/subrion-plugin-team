@@ -26,28 +26,28 @@
 
 class iaTeam extends abstractModuleFront
 {
-	protected static $_table = 'team';
+    protected static $_table = 'team';
 
-	protected $_itemName = 'team';
+    protected $_itemName = 'team';
 
-	public $coreSearchEnabled = true;
-	public $coreSearchOptions = [
-		'tableAlias' => 'p',
-		'regularSearchFields' => ['title', 'description'],
-	];
+    public $coreSearchEnabled = true;
+    public $coreSearchOptions = [
+        'tableAlias' => 'p',
+        'regularSearchFields' => ['title', 'description'],
+    ];
 
 
-	public function get($where, $start = null, $limit = null)
-	{
-		$sql = 'SELECT SQL_CALC_FOUND_ROWS t.* '
-			. 'FROM `' . self::getTable(true) . '`  t '
-			. 'WHERE ' . ($where ? $where . ' AND' : '') . "  t.`status` = 'active' "
-			. 'ORDER BY t.`date_modified` DESC '
-			. ($start || $limit ? "LIMIT $start, $limit" : '');
+    public function get($where, $start = null, $limit = null)
+    {
+        $sql = 'SELECT SQL_CALC_FOUND_ROWS t.* '
+            . 'FROM `' . self::getTable(true) . '`  t '
+            . 'WHERE ' . ($where ? $where . ' AND' : '') . "  t.`status` = 'active' "
+            . 'ORDER BY t.`date_modified` DESC '
+            . ($start || $limit ? "LIMIT $start, $limit" : '');
 
-		$rows = $this->iaDb->getAll($sql);
-		$this->_processValues($rows);
+        $rows = $this->iaDb->getAll($sql);
+        $this->_processValues($rows);
 
-		return $rows;
-	}
+        return $rows;
+    }
 }
