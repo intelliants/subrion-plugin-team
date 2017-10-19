@@ -13,7 +13,7 @@
     </screenshots>
 
     <items>
-        <item>team</item>
+        <item table_name="team" payable="0">team</item>
     </items>
 
     <actions>
@@ -34,10 +34,10 @@
     </fields_groups>
 
     <fields>
-        <field name="title" item="team" type="text" group="general" length="70" required="1" multilingual="1" adminonly="1">Title</field>
-        <field name="position" item="team" type="text" group="general" length="70" required="0" multilingual="1" adminonly="1">Position</field>
-        <field name="description" item="team" type="textarea" group="general" editor="1" required="1" multilingual="1" adminonly="1">Description</field>
-        <field name="pictures" item="team" type="pictures" group="general" length="5" thumb_width="320" thumb_height="320" width="800" height="600" prefix="team_" editable="0">Pictures</field>
+        <field item="team" name="title" type="text" group="general" length="70" required="1" multilingual="1" adminonly="1">Title</field>
+        <field item="team" name="position" type="text" group="general" length="70" required="0" multilingual="1" adminonly="1">Position</field>
+        <field item="team" name="description" type="textarea" group="general" editor="1" required="1" multilingual="1" adminonly="1">Description</field>
+        <field item="team" name="pictures" type="pictures" group="general" length="5" thumb_width="320" thumb_height="320" width="800" height="600" prefix="team_" editable="0">Pictures</field>
     </fields>
 
     <phrases>

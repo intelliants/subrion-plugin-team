@@ -30,9 +30,10 @@ class iaTeam extends abstractModuleFront
 
     protected $_itemName = 'team';
 
+    protected $_moduleName = 'team';
+
     public $coreSearchEnabled = true;
     public $coreSearchOptions = [
-        'tableAlias' => 'p',
         'regularSearchFields' => ['title', 'description'],
     ];
 
